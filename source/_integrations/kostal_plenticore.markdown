@@ -21,6 +21,7 @@ ha_integration_type: integration
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
+It is also possible to use a Master key and a Service Code to set Settings that are only accessible from an installer.
 
 {% include integrations/config_flow.md %}
 
@@ -147,6 +148,7 @@ The following sensors are available in the library:
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
 | Battery Dynamic SoC     |      | RW | Dynamic SoC. |
+| Battery Manual Charge   |      | RW | Manual/Service battery charge. (Only writable when using installer login) |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
