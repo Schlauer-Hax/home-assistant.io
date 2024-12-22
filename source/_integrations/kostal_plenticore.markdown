@@ -21,7 +21,25 @@ ha_integration_type: integration
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
-It is also possible to use a Master key and a Service Code to set Settings that are only accessible from an installer.
+
+## Installer Access 
+
+The integration supports installer-level access using a Master key and Service Code. This enables access to additional settings that are normally restricted to certified installers. 
+
+{% warning %} 
+Using installer credentials: 
+- Should only be done if you fully understand the implications 
+- May void your warranty 
+- Could potentially damage your device if settings are incorrectly configured 
+- Should be done with extreme caution 
+{% endwarning %} 
+
+### Additional Settings with Installer Access 
+
+The following settings become available when using installer credentials: 
+- Battery Manual Charge 
+
+For information about obtaining installer credentials, please consult your device documentation or contact a certified installer.
 
 {% include integrations/config_flow.md %}
 
@@ -148,7 +166,7 @@ The following sensors are available in the library:
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
 | Battery Dynamic SoC     |      | RW | Dynamic SoC. |
-| Battery Manual Charge   |      | RW | Manual/Service battery charge. (Only writable when using installer login) |
+| Battery Manual Charge | | RW | Enables manual charging of the battery for service purposes. This feature: <br>- Requires installer login credentials<br>- Allows forcing battery charging regardless of normal charging rules<br>- Should only be used for maintenance/service purposes<br>- May impact battery longevity if used incorrectly |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
